@@ -1,0 +1,34 @@
+﻿<Window x:Class="Storonkin.CalculationPaints.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Storonkin.CalculationPaints"
+        mc:Ignorable="d"
+        Title="Расчет покраски оффлайн" Height="450" Width="800" FontSize="14">
+    <Grid x:Name="SquareWindow" Background="#FFF7E6E6">
+        <Label Content="Площадь стен" HorizontalAlignment="Left" Margin="25,66,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Количество слоёв&#xD;&#xA;" HorizontalAlignment="Left" Margin="25,100,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Margin="25,154,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged" FontSize="14">
+            <TextBlock>Акриловая</TextBlock>
+            <TextBlock>Латексная</TextBlock>
+            <TextBlock>Акрилатная</TextBlock>
+            <TextBlock>Водно-диспансерная</TextBlock>
+        </ComboBox>
+        <Label Content="Стоимость банки" HorizontalAlignment="Left" Margin="25,202,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Общая площадь всех окон в комнате&#xD;&#xA;" HorizontalAlignment="Left" Margin="25,252,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="Square" HorizontalAlignment="Left" Height="24" Margin="282,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Layer" HorizontalAlignment="Left" Height="23" Margin="282,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Price" HorizontalAlignment="Left" Height="23" Margin="282,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="SquareWindow1" HorizontalAlignment="Left" Height="23" Margin="282,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Result" Content="Рассчитать" HorizontalAlignment="Left" Margin="305,333,0,0" VerticalAlignment="Top" Width="114" Height="35" FontSize="18" FontWeight="Bold" Background="#FFECA0A0" Click="Button_Click"/>
+        <Label Content="Результат" HorizontalAlignment="Left" Margin="504,191,0,0" VerticalAlignment="Top" Height="52" Width="178" FontSize="24" IsHitTestVisible="False" FontWeight="Medium"/>
+        <Label x:Name="OutPrice" Content="" HorizontalAlignment="Left" Margin="716,236,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="OutCount" Content="" HorizontalAlignment="Left" Margin="716,279,0,0" VerticalAlignment="Top"/>
+        <Label Content="Средняя стоимость покраски стен:&#xD;&#xA;" HorizontalAlignment="Left" Margin="479,236,0,0" VerticalAlignment="Top"/>
+        <Label Content="Количество банок ( с запасом ):" HorizontalAlignment="Left" Margin="479,279,0,0" VerticalAlignment="Top" Width="213"/>
+        <Label x:Name="WarringLabel" Content="" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Height="34" Width="562" FontSize="20" FontWeight="Bold" Foreground="Red"/>
+        <Image Margin="479,-41,-91,240" Source="logo_new.png" Stretch="Fill"/>
+        
+    </Grid>
+</Window>
