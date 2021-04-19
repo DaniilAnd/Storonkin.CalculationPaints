@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -46,16 +45,21 @@ namespace Storonkin.CalculationPaints
             {
                 // Вывод стоимость краски для покраски стен
                  Temp = Math.Round(Calc.Result(double.Parse(Square.Text), int.Parse(Layer.Text), int.Parse(Price.Text), double.Parse(SquareWindow1.Text)), 2);
-                 
+                 OutPrice.Content = Temp;
                 // Вывод количества банок с запасом для покупки
                 OutCount.Content = Calc.ResCount(double.Parse(Square.Text), int.Parse(Layer.Text), double.Parse(SquareWindow1.Text)).ToString();
                 WarringLabel.Content = "";
                 //Проверка типа краски и изменение цены
-                if ((bool)rbtn_acrl.IsChecked)
-                    OutPrice.Content = Temp;
-                if ((bool)rbtn_lateks.IsChecked)
-                    OutPrice.Content = Temp * 1.15;
+                //if (ComboBox1.SelectedItem.ToString() == "Акриловая")
+                   // OutPrice.Content = Temp;
+                //else if (ComboBox1.SelectedItem.ToString() == "Латексная")
+                    //OutPrice.Content = Temp * 1.10;
+               // else if (ComboBox1.SelectedItem.ToString() == "Акрилатная")
+                    //OutPrice.Content = Temp * 1.15;
+                //else if (ComboBox1.SelectedItem.ToString() == "Водно-диспансерная")
+                    //OutPrice.Content = Temp * 1.20;
 
+            
 
             }
             // Вывод ошибкок
@@ -68,15 +72,6 @@ namespace Storonkin.CalculationPaints
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-        }
-
-
-
-        // Ввод валидация 
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
