@@ -23,7 +23,7 @@ namespace Storonkin.CalculationPaints
     public partial class MainWindow : Window
     {
 
-       
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -77,6 +77,27 @@ namespace Storonkin.CalculationPaints
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+
+        
+        private void СleanTB_Click(object sender, RoutedEventArgs e)
+        {
+            LoopVisualTree(this);
+        }
+        void LoopVisualTree(DependencyObject obj)//обнуление текст боксов
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+            {
+
+                if (obj is TextBox)
+                {
+                    ((TextBox)obj).Text = null;
+                }
+                // РЕКУРСИЯ
+                LoopVisualTree(VisualTreeHelper.GetChild(obj, i));
+            }
+
         }
     }
 }
