@@ -32,7 +32,7 @@ namespace Storonkin.CalculationPaints
 
         
 
-
+        // TODO: Доделать окно, дверь, объем банки, найти где лейблы вывода результата, так же доделать стены
 
 
 
@@ -97,6 +97,11 @@ namespace Storonkin.CalculationPaints
                 // РЕКУРСИЯ
                 LoopVisualTree(VisualTreeHelper.GetChild(obj, i));
             }
+
+        }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }
