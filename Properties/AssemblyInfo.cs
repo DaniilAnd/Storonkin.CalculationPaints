@@ -7,12 +7,12 @@ using System.Windows;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набор атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Storonkin.CalculationPaints")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Расчет стоимости покраски стен")]
+[assembly: AssemblyDescription("Это приложение предназначено для расчета стоимости покраски стен")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Storonkin Inc.")]
 [assembly: AssemblyProduct("Storonkin.CalculationPaints")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCopyright("2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
