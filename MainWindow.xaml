@@ -5,38 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Storonkin.CalculationPaints"
         mc:Ignorable="d"
-        Title="Расчет покраски оффлайн" FontSize="14" Width="830.111" Height="673.889" ResizeMode="NoResize">
+        Title="Расчет покраски оффлайн" FontSize="14" Width="830.111" Height="673.889" ResizeMode="NoResize" Icon="color_wheel_16443.ico">
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
     <Grid x:Name="SquareWindow" Background="#FFF7E6E6" RenderTransformOrigin="0.33,0.467" Margin="0,0,2,7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="143*"/>
+        </Grid.ColumnDefinitions>
         <Label Content="Площадь стены 1" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Количество слоёв&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,411,0,0" VerticalAlignment="Top" FontSize="14" Height="28"/>
         <Label Content="Стоимость банки" HorizontalAlignment="Left" Margin="10,525,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.533,1.983"/>
         <Label Content=" Площадь окон в комнате&#xA;" HorizontalAlignment="Left" Margin="12,229,0,0" VerticalAlignment="Top" FontSize="14"/>
 
-        <TextBox x:Name="wallheight2" HorizontalAlignment="Left" Height="24" Margin="216,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="Layer" HorizontalAlignment="Left" Height="23" Margin="165,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="Price" HorizontalAlignment="Left" Height="23" Margin="165,525,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="heightWindow" HorizontalAlignment="Left" Height="23" Margin="35,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="wallheight2" HorizontalAlignment="Left" Height="24" Margin="216,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
+        <TextBox x:Name="Layer" HorizontalAlignment="Left" Height="23" Margin="165,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="2" />
+        <TextBox x:Name="Price" HorizontalAlignment="Left" Height="23" Margin="165,525,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
+        <TextBox x:Name="heightWindow" HorizontalAlignment="Left" Height="23" Margin="35,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
 
-        <Button x:Name="Result" Content="Рассчитать" HorizontalAlignment="Left" Margin="492,591,0,0" VerticalAlignment="Top" Width="114" Height="36" FontSize="18" FontWeight="Bold" Background="#FFECA0A0" Click="Button_Click"/>
-        <Label Content="Результат" HorizontalAlignment="Left" Margin="517,23,0,0" VerticalAlignment="Top" Height="52" Width="178" FontSize="24" IsHitTestVisible="False" FontWeight="Medium"/>
-        <Label x:Name="OutPrice" Content="" HorizontalAlignment="Left" Margin="729,68,0,0" VerticalAlignment="Top" Width="62"/>
-        <Label x:Name="OutCount" Content="" HorizontalAlignment="Left" Margin="729,111,0,0" VerticalAlignment="Top" Width="62"/>
-        <Label Content="Средняя стоимость покраски стен:&#xD;&#xA;" HorizontalAlignment="Left" Margin="492,68,0,0" VerticalAlignment="Top"/>
-        <Label Content="Количество банок ( с запасом ):" HorizontalAlignment="Left" Margin="492,111,0,0" VerticalAlignment="Top" Width="213"/>
-        <Label x:Name="WarringLabel" Content="" HorizontalAlignment="Left" Margin="374,10,0,0" VerticalAlignment="Top" Height="34" Width="288" FontSize="20" FontWeight="Bold" Foreground="Red"/>
+        <Button x:Name="Result" Content="Рассчитать" HorizontalAlignment="Left" Margin="99,578,0,0" VerticalAlignment="Top" Width="114" Height="36" FontSize="18" FontWeight="Bold" Background="#FFECA0A0" Click="Button_Click" Grid.Column="1"/>
+        <Label Content="Результат" HorizontalAlignment="Left" Margin="99,19,0,0" VerticalAlignment="Top" Height="52" Width="178" FontSize="36" IsHitTestVisible="False" FontWeight="Bold" Grid.Column="1" FontFamily="Times New Roman"/>
+        <Label x:Name="OutPrice" Content="" HorizontalAlignment="Left" Margin="336,68,0,0" VerticalAlignment="Top" Width="62" Grid.Column="1"/>
+        <Label x:Name="OutCount" Content="" HorizontalAlignment="Left" Margin="336,111,0,0" VerticalAlignment="Top" Width="62" Grid.Column="1"/>
+        <Label Content="Средняя стоимость покраски стен:&#xD;&#xA;" HorizontalAlignment="Left" Margin="99,68,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Количество банок ( с запасом ):" HorizontalAlignment="Left" Margin="99,111,0,0" VerticalAlignment="Top" Width="213" Grid.Column="1"/>
+        <Label x:Name="WarringLabel" Content="" HorizontalAlignment="Left" Margin="374,10,0,0" VerticalAlignment="Top" Height="34" Width="288" FontSize="20" FontWeight="Bold" Foreground="Red" Grid.ColumnSpan="2"/>
         <RadioButton x:Name="rbtn_acrl" Content="Акриловая" HorizontalAlignment="Left" Margin="10,459,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rbtn_lateks" Content="Латексная" HorizontalAlignment="Left" Margin="10,482,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="СleanTB" Content="Сброс" HorizontalAlignment="Left" Margin="374,591,0,0" VerticalAlignment="Top" Width="75" Click="СleanTB_Click" FontWeight="Bold"/>
-        <TextBox x:Name="wallwidth2" HorizontalAlignment="Left" Height="23" Margin="216,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="wallwidth1" HorizontalAlignment="Left" Height="23" Margin="25,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="wallheight1" HorizontalAlignment="Left" Height="23" Margin="25,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
+        <Button x:Name="СleanTB" Content="Сброс" HorizontalAlignment="Left" Margin="374,591,0,0" VerticalAlignment="Top" Width="75" Click="СleanTB_Click" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="wallwidth2" HorizontalAlignment="Left" Height="23" Margin="216,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
+        <TextBox x:Name="wallwidth1" HorizontalAlignment="Left" Height="23" Margin="25,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
+        <TextBox x:Name="wallheight1" HorizontalAlignment="Left" Height="23" Margin="25,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
         <Label Content="Площадь стены 2" HorizontalAlignment="Left" Margin="214,0,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Площадь стены 3" HorizontalAlignment="Left" Margin="30,101,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="wallwidth3" HorizontalAlignment="Left" Height="23" Margin="25,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" />
-        <TextBox x:Name="wallheight3" HorizontalAlignment="Left" Height="23" Margin="25,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" />
+        <TextBox x:Name="wallwidth3" HorizontalAlignment="Left" Height="23" Margin="25,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5"  />
+        <TextBox x:Name="wallheight3" HorizontalAlignment="Left" Height="23" Margin="25,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"  TextChanged="textBox_TextChanged" MaxLength="5" />
         <Label Content="Площадь стены 4" HorizontalAlignment="Left" Margin="214,101,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="wallwidth4" HorizontalAlignment="Left" Height="23" Margin="216,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" />
-        <TextBox x:Name="wallheight4" HorizontalAlignment="Left" Height="23" Margin="216,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" />
+        <TextBox x:Name="wallwidth4" HorizontalAlignment="Left" Height="23" Margin="216,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
+        <TextBox x:Name="wallheight4" HorizontalAlignment="Left" Height="23" Margin="216,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
         <Label Content="В" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top"/>
         <Label Content="В" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top"/>
         <Label Content="В" HorizontalAlignment="Left" Margin="193,33,0,0" VerticalAlignment="Top"/>
@@ -53,13 +60,16 @@
         </ComboBox>
         <Label Content="Объем банки" HorizontalAlignment="Left" Margin="10,382,0,0" VerticalAlignment="Top"/>
         <Label Content="Площадь дверей" HorizontalAlignment="Left" Margin="237,229,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="doorwidth" HorizontalAlignment="Left" Height="23" Margin="237,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="doorheight" HorizontalAlignment="Left" Height="23" Margin="237,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="doorwidth" HorizontalAlignment="Left" Height="23" Margin="237,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
+        <TextBox x:Name="doorheight" HorizontalAlignment="Left" Height="23" Margin="237,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged"  MaxLength="5" />
         <Label Content="В" HorizontalAlignment="Left" Margin="214,263,0,0" VerticalAlignment="Top"/>
         <Label Content="Ш" HorizontalAlignment="Left" Margin="214,300,0,0" VerticalAlignment="Top"/>
         <Label Content="В" HorizontalAlignment="Left" Margin="12,268,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="widthWindow" HorizontalAlignment="Left" Height="23" Margin="35,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="widthWindow" HorizontalAlignment="Left" Height="23" Margin="35,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" TextChanged="textBox_TextChanged" MaxLength="5" />
         <Label Content="Ш" HorizontalAlignment="Left" Margin="12,300,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Вспомогательное оборудование:" HorizontalAlignment="Left" Margin="99,157,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="other" Content="" HorizontalAlignment="Left" Margin="336,157,0,0" VerticalAlignment="Top" Width="62" Grid.Column="1"/>
+        <Label x:Name="test" Content="Пример ( двойной клик ) " HorizontalAlignment="Left" Margin="25,591,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" MouseDoubleClick="inputTestData"/>
 
 
     </Grid>

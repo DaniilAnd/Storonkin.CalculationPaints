@@ -13,29 +13,36 @@ namespace Storonkin.CalculationPaints.Class
 
         private static double Res;
         // Метод вычисления стоимости покраски
-        public static double Result(double Square,int Layer,int Price,double SquareWindow, double SquareDoor)
+        public static double Result(double ResCount,int Price)
         {
-            double temp = (((Square - SquareWindow - SquareDoor) * Layer) / ((8 + 14) / 2)) * Price;
+            double temp = ResCount * Price;
             Res = temp;
             return Res;
         }
         // Метод вычисления количества банок
-        public static int ResCount(double Square, int Layer, double SquareWindow, double SquareDoor ) 
+        public static double ResCount(double Square, int Layer, double SquareWindow, double SquareDoor ) 
         {
-            int temp = Convert.ToInt32(((Square - SquareWindow - SquareDoor) * Layer) / ((8 + 14) / 2));
+            double temp = (((Square - (SquareWindow + SquareDoor)) * Layer) / 11);
             return temp + 1 ;
 
         }
+        
 
+        // Метод получения площади
         public static double SquareWall( double[] w, double[] h)
         {
-            return w.Sum() * h.Sum();
+            
+            return (w[0] * h[0])+ (w[1] * h[1])+ (w[2] * h[2]) + (w[3] * h[3]);
+
         }
 
+        // Метод получения площади цвери
         public static double SquareDoor(double H, double W)
         {
             return H * W;
         }
+
+        // Метод получения площади окон
         public static double SquareWindow(double H, double W)
         {
             return H * W;
